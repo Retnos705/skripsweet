@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardCornerRadius="6dp"
+    card_view:cardElevation="3dp"
+    card_view:cardUseCompatPadding="true">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp">
+        <TextView
+            android:id="@+id/lokasiNama"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Nama"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/lblKetinggianMax"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Ketinggian Air Tertinggi"
+            android:layout_below="@id/lokasiNama"
+            android:textSize="15sp"
+            />
+
+        <TextView
+            android:id="@+id/ketinggianMax"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lokasiNama"
+            android:layout_alignStart="@+id/lblKetinggianMax"
+            android:layout_alignLeft="@+id/lblKetinggianMax"
+            android:layout_marginStart="172dp"
+            android:layout_marginLeft="172dp"
+            android:layout_marginTop="1dp"
+            android:hint=": 99,99 CM"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/jamTinggiMax"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/lokasiNama"
+            android:layout_alignStart="@+id/ketinggianMax"
+            android:layout_alignLeft="@+id/ketinggianMax"
+            android:layout_marginStart="99dp"
+            android:layout_marginLeft="99dp"
+            android:layout_marginTop="1dp"
+            android:hint="00:00 WIB"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/lblKetinggianMin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Ketinggian Air Terendah"
+            android:layout_below="@id/lblKetinggianMax"
+            android:textSize="15sp"
+            />
+
+        <TextView
+            android:id="@+id/ketinggianMin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ketinggianMax"
+            android:layout_alignStart="@+id/lblKetinggianMin"
+            android:layout_alignLeft="@+id/lblKetinggianMin"
+            android:layout_marginStart="172dp"
+            android:layout_marginLeft="172dp"
+            android:layout_marginTop="1dp"
+            android:hint=": 99,99 CM"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/jamTinggiMin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/jamTinggiMax"
+            android:layout_alignStart="@+id/ketinggianMin"
+            android:layout_alignLeft="@+id/ketinggianMin"
+            android:layout_marginStart="99dp"
+            android:layout_marginLeft="99dp"
+            android:layout_marginTop="0dp"
+            android:hint="00:00 WIB"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/lblKetinggianAvg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Ketinggian Air Rata-rata"
+            android:layout_below="@id/lblKetinggianMin"
+            android:textSize="15sp"
+            />
+
+        <TextView
+            android:id="@+id/ketinggianAvg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ketinggianMin"
+            android:layout_alignStart="@+id/lblKetinggianAvg"
+            android:layout_alignLeft="@+id/lblKetinggianAvg"
+            android:layout_marginStart="172dp"
+            android:layout_marginLeft="172dp"
+            android:hint=": 99,99 CM"
+            android:textSize="15sp" />
+    </RelativeLayout>
+</android.support.v7.widget.CardView>
