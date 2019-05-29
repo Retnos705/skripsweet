@@ -16,11 +16,10 @@
             android:id="@+id/status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="BAHAYA"
             android:layout_alignParentRight="true"
+            android:hint="BAHAYA"
             android:textSize="15sp"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/lblStatus"
@@ -42,14 +41,14 @@
             android:hint="Nama"
             android:textSize="18sp"
             android:textStyle="bold" />
+
         <TextView
             android:id="@+id/lblKetinggianAir"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Ketinggian Air Saat ini"
             android:layout_below="@id/lokasiNama"
-            android:textSize="15sp"
-            />
+            android:hint="Ketinggian Air Saat ini"
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/ketinggianAir"
@@ -71,9 +70,9 @@
             android:layout_below="@id/lokasiNama"
             android:layout_alignStart="@+id/ketinggianAir"
             android:layout_alignLeft="@+id/ketinggianAir"
-            android:layout_marginStart="99dp"
-            android:layout_marginLeft="99dp"
-            android:layout_marginTop="0dp"
+            android:layout_marginStart="79dp"
+            android:layout_marginLeft="79dp"
+            android:layout_marginTop="-1dp"
             android:hint="00:00 WIB"
             android:textSize="15sp" />
 
@@ -81,10 +80,9 @@
             android:id="@+id/lblKetinggianMax"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Ketinggian Air Tertinggi"
             android:layout_below="@id/lblKetinggianAir"
-            android:textSize="15sp"
-            />
+            android:hint="Ketinggian Air Tertinggi"
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/ketinggianMax"
@@ -106,9 +104,9 @@
             android:layout_below="@id/ketinggianAir"
             android:layout_alignStart="@+id/ketinggianMax"
             android:layout_alignLeft="@+id/ketinggianMax"
-            android:layout_marginStart="99dp"
-            android:layout_marginLeft="99dp"
-            android:layout_marginTop="1dp"
+            android:layout_marginStart="79dp"
+            android:layout_marginLeft="79dp"
+            android:layout_marginTop="0dp"
             android:hint="00:00 WIB"
             android:textSize="15sp" />
 
@@ -116,10 +114,9 @@
             android:id="@+id/lblKetinggianMin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Ketinggian Air Terendah"
             android:layout_below="@id/lblKetinggianMax"
-            android:textSize="15sp"
-            />
+            android:hint="Ketinggian Air Terendah"
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/ketinggianMin"
@@ -141,8 +138,8 @@
             android:layout_below="@id/jamTinggiMax"
             android:layout_alignStart="@+id/ketinggianMin"
             android:layout_alignLeft="@+id/ketinggianMin"
-            android:layout_marginStart="99dp"
-            android:layout_marginLeft="99dp"
+            android:layout_marginStart="79dp"
+            android:layout_marginLeft="79dp"
             android:layout_marginTop="0dp"
             android:hint="00:00 WIB"
             android:textSize="15sp" />
@@ -151,10 +148,9 @@
             android:id="@+id/lblKetinggianAvg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Ketinggian Air Rata-rata"
             android:layout_below="@id/lblKetinggianMin"
-            android:textSize="15sp"
-            />
+            android:hint="Ketinggian Air Rata-rata"
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/ketinggianAvg"

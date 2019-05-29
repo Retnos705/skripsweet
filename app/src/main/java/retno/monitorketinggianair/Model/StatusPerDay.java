@@ -6,79 +6,134 @@ import com.google.gson.annotations.SerializedName;
 public class StatusPerDay {
     @SerializedName("id_lokasi")
     @Expose
-    private Integer idLokasi;
-    @SerializedName("nama_lokasi")
+    private Integer id;
+
+    @SerializedName("nama")
     @Expose
-    private String namaLokasi;
-    @SerializedName("tinggi_max")
+    private String name;
+
+    @SerializedName("now_time")
     @Expose
-    private String tinggiMax;
-    @SerializedName("tinggi_min")
+    private Object nowTime;
+
+    @SerializedName("now_tinggi")
     @Expose
-    private String tinggiMin;
-    @SerializedName("tinggi_avg")
+    private Object nowTinggi;
+
+    @SerializedName("max_time")
     @Expose
-    private String tinggiAvg;
-    @SerializedName("jam_tinggi_max")
+    private Object maxTime;
+
+    @SerializedName("max_tinggi")
     @Expose
-    private String jamTinggiMax;
-    @SerializedName("jam_tinggi_min")
+    private Object maxTinggi;
+
+    @SerializedName("min_time")
     @Expose
-    private String jamTinggiMin;
+    private Object min_time;
 
-    public Integer getIdLokasi() {
-        return idLokasi;
+    @SerializedName("min_tinggi")
+    @Expose
+    private Object minTinggi;
+
+    @SerializedName("avg")
+    @Expose
+    private Object avg;
+
+    @SerializedName("id_status")
+    @Expose
+    private Integer idStatus;
+
+    @SerializedName("status")
+    @Expose
+    private String status;
+
+
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdLokasi(Integer idLokasi) {
-        this.idLokasi = idLokasi;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getNamaLokasi() {
-        return namaLokasi;
+    public String getName() {
+        return name;
     }
 
-    public void setNamaLokasi(Integer idLokasi) {
-        this.namaLokasi = namaLokasi;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getTinggiMax() {
-        return tinggiMax;
+    public Object getNowTime() {
+        return nowTime;
     }
 
-    public void setTinggiMax(String tinggiMax) {
-        this.tinggiMax = tinggiMax;
+    public void setNowTime(Object nowTime) {
+        this.nowTime = nowTime;
     }
 
-    public String getTinggiMin() {
-        return tinggiMin;
+    public Object getNowTinggi() {
+        return nowTinggi;
     }
 
-    public void setTinggiMin(String tinggiMin) {
-        this.tinggiMin = tinggiMin;
+    public void setNowTinggi(Object nowTinggi) {
+        this.nowTinggi = nowTinggi;
     }
 
-    public String getTinggiAvg() {
-        return tinggiAvg;
+    public Object getMaxTime() {
+        return maxTime;
     }
 
-    public void setTinggiAvg(String tinggiAvg) {
-        this.tinggiAvg = tinggiAvg;
+    public void setMaxTime(Object maxTime) {
+        this.maxTime = maxTime;
     }
 
-    public String getJamTinggiMax() {
-        return jamTinggiMax;
+    public Object getMaxTinggi() {
+        return maxTinggi;
     }
 
-    public void setJamTinggiMax(String jamTinggiMax) {
-        this.jamTinggiMax = jamTinggiMax;
+    public void setMaxTinggi(Object maxTinggi) {
+        this.maxTinggi = maxTinggi;
     }
 
-    public String getJamTinggiMin() {
-        return jamTinggiMin;
+    public Object getMin_time() {
+        return min_time;
     }
 
-    public void setJamTinggiMin(String jamTinggiMin) {
-        this.jamTinggiMin = jamTinggiMin;
+    public void setMin_time(Object min_time) {
+        this.min_time = min_time;
+    }
+
+    public Object getMinTinggi() {
+        return minTinggi;
+    }
+
+    public void setMinTinggi(Object minTinggi) {
+        this.minTinggi = minTinggi;
+    }
+
+    public Object getAvg() {
+        return avg;
+    }
+
+    public void setAvg(Object avg) {
+        this.avg = avg;
+    }
+
+    public Integer getIdStatus() {
+        return idStatus;
+    }
+
+    public void setIdStatus(Integer idStatus) {
+        this.idStatus = idStatus;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

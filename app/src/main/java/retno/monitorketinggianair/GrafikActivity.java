@@ -78,7 +78,7 @@ public class GrafikActivity extends AppCompatActivity {
 
     public void getStatus(){
 
-        Call<StatusPerDayDataResponse> statusPerDayDataResponseCall = mApiInterface.getStatusPerDay("getStatusPerDay",lokasiId,strTodayDate);
+        Call<StatusPerDayDataResponse> statusPerDayDataResponseCall = mApiInterface.getStatusPerDay(lokasiId);
 
         statusPerDayDataResponseCall.enqueue(new Callback<StatusPerDayDataResponse>() {
             @Override
@@ -98,7 +98,7 @@ public class GrafikActivity extends AppCompatActivity {
 
     }
     public void getGrafik(){
-        Call<GrafikDataRensponse> grafikDataRensponseCall = mApiInterface.getGrafik("getDetailForGrafik",lokasiId,strTodayDate);
+        Call<GrafikDataRensponse> grafikDataRensponseCall = mApiInterface.getGrafik(lokasiId);
 
         grafikDataRensponseCall.enqueue(new Callback<GrafikDataRensponse>() {
             @Override
@@ -140,24 +140,35 @@ public class GrafikActivity extends AppCompatActivity {
         xAxis.setAxisMinimum(0f);
         xAxis.setDrawLimitLinesBehindData(true);
 
-        LimitLine ll1 = new LimitLine(20f, "Batas Bahaya");
+        LimitLine ll1 = new LimitLine(7f, "NORMAL");
         ll1.setLineWidth(4f);
         ll1.enableDashedLine(10f, 10f, 0f);
         ll1.setLabelPosition(LimitLine.LimitLabelPosition.RIGHT_TOP);
         ll1.setTextSize(10f);
+        ll1.setLineColor(Color.GREEN);
 
-        LimitLine ll2 = new LimitLine(10f, "Batas Waspada");
+        LimitLine ll2 = new LimitLine(19f, "WASPADA");
         ll2.setLineWidth(4f);
         ll2.enableDashedLine(10f, 10f, 0f);
-        ll2.setLabelPosition(LimitLine.LimitLabelPosition.RIGHT_BOTTOM);
+        ll2.setLabelPosition(LimitLine.LimitLabelPosition.RIGHT_TOP);
         ll2.setTextSize(10f);
         ll2.setLineColor(Color.YELLOW);
+
+        LimitLine ll3 = new LimitLine(25f, "BAHAYA");
+        ll3.setLineWidth(4f);
+        ll3.enableDashedLine(10f, 10f, 0f);
+        ll3.setLabelPosition(LimitLine.LimitLabelPosition.RIGHT_TOP);
+        ll3.setTextSize(10f);
+        ll3.setLineColor(Color.RED);
+
+
 
         YAxis leftAxis = mChart.getAxisLeft();
         leftAxis.removeAllLimitLines();
         leftAxis.addLimitLine(ll1);
         leftAxis.addLimitLine(ll2);
-        leftAxis.setAxisMaximum(30f);
+        leftAxis.addLimitLine(ll3);
+        leftAxis.setAxisMaximum(40f);
         leftAxis.setAxisMinimum(0f);
         leftAxis.enableGridDashedLine(10f, 10f, 0f);
         leftAxis.setDrawZeroLine(false);
@@ -172,7 +183,7 @@ public class GrafikActivity extends AppCompatActivity {
         ArrayList<Entry> values = new ArrayList<>();
         if(grafikList.size()>0){
             for (Integer i=0;i<grafikList.size();i++){
-                values.add(new Entry(grafikList.get(i).getJam(),Integer.parseInt(grafikList.get(i).getKetinggianAir())));
+                values.add(new Entry(grafikList.get(i).getJam(),grafikList.get(i).getKetinggianAir()));
             }
         }
 

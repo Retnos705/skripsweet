@@ -1,9 +1,11 @@
 package retno.monitorketinggianair.Adapter;
 
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.List;
@@ -27,19 +29,34 @@ public class AdapterDetailGrafik extends RecyclerView.Adapter<AdapterDetailGrafi
 
     @Override
     public void onBindViewHolder(MyViewHolder holder,final int position){
-        String tinggiMax = (mDetailGrafik.get(position).getTinggiMax())==null?"N/A": ": " + mDetailGrafik.get(position).getTinggiMax() +" CM";
-        String tinggiMin = (mDetailGrafik.get(position).getTinggiMin())==null?"N/A": ": " + mDetailGrafik.get(position).getTinggiMin() +" CM";
-        String tinggiAvg = (mDetailGrafik.get(position).getTinggiAvg())==null?"N/A": ": " + mDetailGrafik.get(position).getTinggiAvg() +" CM";
-        String jamTinggiMax = (mDetailGrafik.get(position).getTinggiMin())==null?"N/A":"( " + mDetailGrafik.get(position).getJamTinggiMax() +" WIB )";
-        String jamTinggiMin = (mDetailGrafik.get(position).getTinggiMax())==null?"N/A":"( " + mDetailGrafik.get(position).getJamTinggiMin() +" WIB )";
+        String status = mDetailGrafik.get(position).getStatus().toUpperCase();
+        if(mDetailGrafik.get(position).getIdStatus() == 1){
 
+            holder.mTextViewStatus.setTextColor(Color.GREEN);
+        }else if (mDetailGrafik.get(position).getIdStatus() == 2){
 
-        holder.txtNamaLokasi.setText(mDetailGrafik.get(position).getNamaLokasi().toUpperCase());
-        holder.txtTinggiMax.setText(tinggiMax);
-        holder.txtTinggiMin.setText(tinggiMin);
-        holder.txtTinggiAvg.setText(tinggiAvg);
-        holder.txtJamTinggiMax.setText(jamTinggiMax);
-        holder.txtJamTinggiMin.setText(jamTinggiMin);
+            holder.mTextViewStatus.setTextColor(Color.YELLOW);
+        }else {
+            holder.mTextViewStatus.setTextColor(Color.RED);
+        }
+
+        String ketinggianAir = (mDetailGrafik.get(position).getNowTinggi() == null)? "N/A" : ": "+ (String) mDetailGrafik.get(position).getNowTinggi() + " CM";
+        String ketinggianMax = ((mDetailGrafik.get(position).getMaxTinggi() == null)? "N/A" : ": "+ (String) mDetailGrafik.get(position).getMaxTinggi()) + " CM" ;
+        String ketinggianMin = ((mDetailGrafik.get(position).getMinTinggi() == null)? "N/A" : ": "+ (String) mDetailGrafik.get(position).getMinTinggi()) + " CM" ;
+        String ketinggianAvg = (mDetailGrafik.get(position).getAvg() == null)? "N/A" : ": "+ (String) mDetailGrafik.get(position).getAvg() + " CM";
+        String jamKetinggianAir = ((mDetailGrafik.get(position).getNowTime() == null)? "N/A" : "( " + (String) mDetailGrafik.get(position).getNowTime()) +" WIB )" ;
+        String jamKetinggianMax = ((mDetailGrafik.get(position).getMaxTime() == null)? "N/A" : "( " + (String) mDetailGrafik.get(position).getMaxTime()) +" WIB )" ;
+        String jamKetinggianMin = ((mDetailGrafik.get(position).getMin_time() == null)? "N/A" : "( " + (String) mDetailGrafik.get(position).getMin_time()) +" WIB )"  ;
+
+        holder.mTextViewStatus.setText(status);
+        holder.mTextViewName.setText((mDetailGrafik.get(position).getName()).toUpperCase());
+        holder.mTextViewKetinggianAir.setText(ketinggianAir);
+        holder.mTextViewKetinggianMax.setText(ketinggianMax);
+        holder.mTextViewKetinggianMin.setText(ketinggianMin);
+        holder.mTextViewKetinggianAvg.setText(ketinggianAvg);
+        holder.mTextViewJamAir.setText(jamKetinggianAir);
+        holder.mTextViewJamMax.setText(jamKetinggianMax);
+        holder.mTextViewJamMin.setText(jamKetinggianMin);
     }
 
     @Override
@@ -48,21 +65,30 @@ public class AdapterDetailGrafik extends RecyclerView.Adapter<AdapterDetailGrafi
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
-        public TextView txtNamaLokasi
-                ,txtTinggiMax
-                ,txtTinggiMin
-                ,txtTinggiAvg
-                ,txtJamTinggiMax
-                ,txtJamTinggiMin;
+        public TextView mTextViewStatus
+                ,mTextViewName
+                ,mTextViewKetinggianAir
+                ,mTextViewKetinggianMax
+                ,mTextViewJamAir
+                ,mTextViewJamMax
+                ,mTextViewJamMin
+                ,mTextViewKetinggianMin
+                ,mTextViewKetinggianAvg;
 
-        public MyViewHolder(View itemView){
+        public Button mBtnGrafik
+                ,mBtnMap;
+
+        public MyViewHolder(View itemView) {
             super(itemView);
-            txtNamaLokasi = (TextView) itemView.findViewById(R.id.lokasiNama);
-            txtTinggiMax = (TextView) itemView.findViewById(R.id.ketinggianMax);
-            txtTinggiMin = (TextView) itemView.findViewById(R.id.ketinggianMin);
-            txtTinggiAvg = (TextView) itemView.findViewById(R.id.ketinggianAvg);
-            txtJamTinggiMax = (TextView) itemView.findViewById(R.id.jamTinggiMax);
-            txtJamTinggiMin = (TextView) itemView.findViewById(R.id.jamTinggiMin);
+            mTextViewStatus = (TextView) itemView.findViewById(R.id.status);
+            mTextViewName=(TextView) itemView.findViewById(R.id.lokasiNama);
+            mTextViewKetinggianAir = (TextView) itemView.findViewById(R.id.ketinggianAir);
+            mTextViewKetinggianMax = (TextView) itemView.findViewById(R.id.ketinggianMax);
+            mTextViewKetinggianMin = (TextView) itemView.findViewById(R.id.ketinggianMin);
+            mTextViewJamAir = (TextView) itemView.findViewById(R.id.jamTinggiAir);
+            mTextViewJamMax = (TextView) itemView.findViewById(R.id.jamTinggiMax);
+            mTextViewJamMin = (TextView) itemView.findViewById(R.id.jamTinggiMin);
+            mTextViewKetinggianAvg = (TextView) itemView.findViewById(R.id.ketinggianAvg);
         }
     }
 }

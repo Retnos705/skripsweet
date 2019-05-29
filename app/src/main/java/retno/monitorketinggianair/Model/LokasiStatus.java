@@ -4,41 +4,58 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class LokasiStatus {
-    @SerializedName("id")
+    @SerializedName("id_lokasi")
     @Expose
     private Integer id;
 
-    @SerializedName("name")
+    @SerializedName("nama")
     @Expose
     private String name;
 
-    @SerializedName("jam_tinggi_air")
+    @SerializedName("lat")
     @Expose
-    private Object jamTinggiAir;
+    private Double latitude;
 
-    @SerializedName("ketinggian_air")
+    @SerializedName("lng")
     @Expose
-    private Object ketinggianAir;
+    private Double longitude;
 
-    @SerializedName("tinggi_max")
+    @SerializedName("now_time")
     @Expose
-    private Object tinggiMax;
+    private Object nowTime;
 
-    @SerializedName("jam_tinggi_max")
+    @SerializedName("now_tinggi")
     @Expose
-    private Object jamTinggiMax;
+    private Object nowTinggi;
 
-    @SerializedName("tinggi_min")
+    @SerializedName("max_time")
     @Expose
-    private Object tinggiMin;
+    private Object maxTime;
 
-    @SerializedName("jam_tinggi_min")
+    @SerializedName("max_tinggi")
     @Expose
-    private Object jamTinggiMin;
+    private Object maxTinggi;
 
-    @SerializedName("tinggi_avg")
+    @SerializedName("min_time")
     @Expose
-    private Object tinggiAvg;
+    private Object min_time;
+
+    @SerializedName("min_tinggi")
+    @Expose
+    private Object minTinggi;
+
+    @SerializedName("avg")
+    @Expose
+    private Object avg;
+
+    @SerializedName("id_status")
+    @Expose
+    private Integer idStatus;
+
+    @SerializedName("status")
+    @Expose
+    private String status;
+
 
     public Integer getId() {
         return id;
@@ -56,59 +73,91 @@ public class LokasiStatus {
         this.name = name;
     }
 
-    public Object getJamTinggiAir() {
-        return jamTinggiAir;
+    public Double getLatitude() {
+        return latitude;
     }
 
-    public void setJamTinggiAir(Object jamTinggiAir) {
-        this.jamTinggiAir = jamTinggiAir;
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
     }
 
-    public Object getKetinggianAir() {
-        return ketinggianAir;
+    public Double getLongitude() {
+        return longitude;
     }
 
-    public void setKetinggianAir(Object ketinggianAir) {
-        this.ketinggianAir = ketinggianAir;
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
     }
 
-    public Object getTinggiMax() {
-        return tinggiMax;
+    public Object getNowTime() {
+        return nowTime;
     }
 
-    public void setTinggiMax(Object tinggiMax) {
-        this.tinggiMax = tinggiMax;
+    public void setNowTime(Object nowTime) {
+        this.nowTime = nowTime;
     }
 
-    public Object getJamTinggiMax() {
-        return jamTinggiMax;
+    public Object getNowTinggi() {
+        return nowTinggi;
     }
 
-    public void setJamTinggiMax(Object jamTinggiMax) {
-        this.jamTinggiMax = jamTinggiMax;
+    public void setNowTinggi(Object nowTinggi) {
+        this.nowTinggi = nowTinggi;
     }
 
-    public Object getTinggiMin() {
-        return tinggiMin;
+    public Object getMaxTime() {
+        return maxTime;
     }
 
-    public void setTinggiMin(Object tinggiMin) {
-        this.tinggiMin = tinggiMin;
+    public void setMaxTime(Object maxTime) {
+        this.maxTime = maxTime;
     }
 
-    public Object getJamTinggiMin() {
-        return jamTinggiMin;
+    public Object getMaxTinggi() {
+        return maxTinggi;
     }
 
-    public void setJamTinggiMin(Object jamTinggiMin) {
-        this.jamTinggiMin = jamTinggiMin;
+    public void setMaxTinggi(Object maxTinggi) {
+        this.maxTinggi = maxTinggi;
     }
 
-    public Object getTinggiAvg() {
-        return tinggiAvg;
+    public Object getMin_time() {
+        return min_time;
     }
 
-    public void setTinggiAvg(Object tinggiAvg) {
-        this.tinggiAvg = tinggiAvg;
+    public void setMin_time(Object min_time) {
+        this.min_time = min_time;
+    }
+
+    public Object getMinTinggi() {
+        return minTinggi;
+    }
+
+    public void setMinTinggi(Object minTinggi) {
+        this.minTinggi = minTinggi;
+    }
+
+    public Object getAvg() {
+        return avg;
+    }
+
+    public void setAvg(Object avg) {
+        this.avg = avg;
+    }
+
+    public Integer getIdStatus() {
+        return idStatus;
+    }
+
+    public void setIdStatus(Integer idStatus) {
+        this.idStatus = idStatus;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

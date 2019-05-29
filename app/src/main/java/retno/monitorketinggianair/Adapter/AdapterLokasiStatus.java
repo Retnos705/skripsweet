@@ -2,7 +2,7 @@ package retno.monitorketinggianair.Adapter;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.os.Bundle;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,7 +13,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import retno.monitorketinggianair.GrafikActivity;
-import retno.monitorketinggianair.HomeActivity;
+import retno.monitorketinggianair.MapsActivity;
 import retno.monitorketinggianair.Model.LokasiStatus;
 import retno.monitorketinggianair.R;
 
@@ -34,29 +34,24 @@ public class AdapterLokasiStatus extends RecyclerView.Adapter<AdapterLokasiStatu
 
     @Override
     public void onBindViewHolder (MyViewHolder holder,final int position){
-        String status = "N/A";
-        if(mLokasiStatus.get(position).getKetinggianAir() != null){
-            if(Float.parseFloat((String) mLokasiStatus.get(position).getKetinggianAir()) >= 20){
-                status = "BAHAYA";
-                holder.mTextViewStatus.setTextColor(Color.RED);
-            }else if (Float.parseFloat((String) mLokasiStatus.get(position).getKetinggianAir()) >= 10 && Float.parseFloat((String) mLokasiStatus.get(position).getKetinggianAir()) < 20 ){
-                status = "WASPADA";
-                holder.mTextViewStatus.setTextColor(Color.rgb(255,165,0));
-            }else if(Float.parseFloat((String) mLokasiStatus.get(position).getKetinggianAir()) < 10){
-                status = "AMAN";
-                holder.mTextViewStatus.setTextColor(Color.GREEN);
-            }
+        String status = mLokasiStatus.get(position).getStatus().toUpperCase();
+        if(mLokasiStatus.get(position).getIdStatus() == 1){
+
+            holder.mTextViewStatus.setTextColor(Color.GREEN);
+        }else if (mLokasiStatus.get(position).getIdStatus() == 2){
+
+            holder.mTextViewStatus.setTextColor(Color.YELLOW);
         }else {
             holder.mTextViewStatus.setTextColor(Color.RED);
         }
 
-        String ketinggianAir = (mLokasiStatus.get(position).getKetinggianAir() == null)? "N/A" : ": "+ (String) mLokasiStatus.get(position).getKetinggianAir() + " CM";
-        String ketinggianMax = ((mLokasiStatus.get(position).getTinggiMax() == null)? "N/A" : ": "+ (String) mLokasiStatus.get(position).getTinggiMax()) + " CM" ;
-        String ketinggianMin = ((mLokasiStatus.get(position).getTinggiMin() == null)? "N/A" : ": "+ (String) mLokasiStatus.get(position).getTinggiMin()) + " CM" ;
-        String ketinggianAvg = (mLokasiStatus.get(position).getTinggiAvg() == null)? "N/A" : ": "+ (String) mLokasiStatus.get(position).getTinggiAvg() + " CM";
-        String jamKetinggianAir = ((mLokasiStatus.get(position).getJamTinggiAir() == null)? "N/A" : "( " + (String) mLokasiStatus.get(position).getJamTinggiAir()) +" WIB )" ;
-        String jamKetinggianMax = ((mLokasiStatus.get(position).getJamTinggiMax() == null)? "N/A" : "( " + (String) mLokasiStatus.get(position).getJamTinggiMax()) +" WIB )" ;
-        String jamKetinggianMin = ((mLokasiStatus.get(position).getJamTinggiMin() == null)? "N/A" : "( " + (String) mLokasiStatus.get(position).getJamTinggiMin()) +" WIB )"  ;
+        String ketinggianAir = (mLokasiStatus.get(position).getNowTinggi() == null)? "N/A" : ": "+ (String) mLokasiStatus.get(position).getNowTinggi() + " CM";
+        String ketinggianMax = ((mLokasiStatus.get(position).getMaxTinggi() == null)? "N/A" : ": "+ (String) mLokasiStatus.get(position).getMaxTinggi()) + " CM" ;
+        String ketinggianMin = ((mLokasiStatus.get(position).getMinTinggi() == null)? "N/A" : ": "+ (String) mLokasiStatus.get(position).getMinTinggi()) + " CM" ;
+        String ketinggianAvg = (mLokasiStatus.get(position).getAvg() == null)? "N/A" : ": "+ (String) mLokasiStatus.get(position).getAvg() + " CM";
+        String jamKetinggianAir = ((mLokasiStatus.get(position).getNowTime() == null)? "N/A" : "( " + (String) mLokasiStatus.get(position).getNowTime()) +" WIB )" ;
+        String jamKetinggianMax = ((mLokasiStatus.get(position).getMaxTime() == null)? "N/A" : "( " + (String) mLokasiStatus.get(position).getMaxTime()) +" WIB )" ;
+        String jamKetinggianMin = ((mLokasiStatus.get(position).getMin_time() == null)? "N/A" : "( " + (String) mLokasiStatus.get(position).getMin_time()) +" WIB )"  ;
 
         holder.mTextViewStatus.setText(status);
         holder.mTextViewName.setText((mLokasiStatus.get(position).getName()).toUpperCase());
@@ -73,6 +68,18 @@ public class AdapterLokasiStatus extends RecyclerView.Adapter<AdapterLokasiStatu
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(),GrafikActivity.class);
                 intent.putExtra("id",mLokasiStatus.get(position).getId().toString());
+                v.getContext().startActivity(intent);
+            }
+        });
+
+        holder.mBtnMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), MapsActivity.class);
+                intent.putExtra("id",mLokasiStatus.get(position).getId().toString());
+                intent.putExtra("name",mLokasiStatus.get(position).getName());
+                intent.putExtra("lat",""+mLokasiStatus.get(position).getLatitude());
+                intent.putExtra("lng",""+mLokasiStatus.get(position).getLongitude());
                 v.getContext().startActivity(intent);
             }
         });

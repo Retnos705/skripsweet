@@ -12,7 +12,7 @@ public class Grafik {
     private Integer jam;
     @SerializedName("ketinggian_air")
     @Expose
-    private String ketinggianAir;
+    private Float ketinggianAir;
 
     public Integer getIdLokasi() {
         return idLokasi;
@@ -30,11 +30,11 @@ public class Grafik {
         this.jam = jam;
     }
 
-    public String getKetinggianAir() {
+    public Float getKetinggianAir() {
         return ketinggianAir;
     }
 
-    public void setKetinggianAir(String ketinggianAir) {
+    public void setKetinggianAir(Float ketinggianAir) {
         this.ketinggianAir = ketinggianAir;
     }
 }
